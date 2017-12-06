@@ -1,13 +1,14 @@
 # roboti
 @ Introducere in robotica cu Arduino
+
 Tema 2 - matrice cu LED-uri
 
  
 
 	a. Jocul ales: “Cade cerul pe mine” 
-	1. Link: https://youtu.be/uNy5M8FOpx0?t=8m31s
-	2. Descriere: Jocul incepe cu 3 linii de cer (LED-uri aprinse random, minim unul pe fiecare linie, incepand de la linia 1 in jos) si cu pamanteanul aflat pe pamant (led aprins pe linia 8, coloana 4). Pamanteanul se poate deplasa la stanga si la dreapta si poate aprinde LED-uri anterior stinse de pe cer doar vertical (pe aceeasi coloana pe care se afla pamanteanul). Scopul jocului este ca pamanteanul sa acumuleze cat mai multe puncte, adica sa completeze linii din cer - odata completate, acestea dispar. Dificultatea jocului creste in timp. Jocul se termina cand numarul de linii ale cerului devine 8.
-	3. Abordare tehnica: 
+ Link: https://youtu.be/uNy5M8FOpx0?t=8m31s
+ Descriere: Jocul incepe cu 3 linii de cer (LED-uri aprinse random, minim unul pe fiecare linie, incepand de la linia 1 in jos) si cu pamanteanul aflat pe pamant (led aprins pe linia 8, coloana 4). Pamanteanul se poate deplasa la stanga si la dreapta si poate aprinde LED-uri anterior stinse de pe cer doar vertical (pe aceeasi coloana pe care se afla pamanteanul). Scopul jocului este ca pamanteanul sa acumuleze cat mai multe puncte, adica sa completeze linii din cer - odata completate, acestea dispar. Dificultatea jocului creste in timp. Jocul se termina cand numarul de linii ale cerului devine 8.
+ Abordare tehnica: 
 	Input: joystick
 	Output: matrice
 	Se afiseaza textul “start” (sau ceva text asemanator) si se asteapta un click de la jucator. Astfel, jocul incepe.
@@ -21,7 +22,7 @@ Tema 2 - matrice cu LED-uri
 	Cand conditia de oprire este intalnita, se afiseaza scorul (aka numarul de linii) si se ofera posibilitatea de a reincepe jocul printr-un text corespunzator (“start again?”, de exemplu) si un click de la jucator.
 	
 
-    b. Indeplinirea cerintelor
+   	 b. Indeplinirea cerintelor
 Start: text pe ecran, click pe joystick
 End: text, scor obtinut, optiune de restart
 Niveluri/dificultate: creste viteza “caderii” la fiecare 30 de secunda
