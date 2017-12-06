@@ -7,7 +7,9 @@ Tema 2 - matrice cu LED-uri
 
 	a. Jocul ales: “Cade cerul pe mine” 
  Link: https://youtu.be/uNy5M8FOpx0?t=8m31s
+ 
  Descriere: Jocul incepe cu 3 linii de cer (LED-uri aprinse random, minim unul pe fiecare linie, incepand de la linia 1 in jos) si cu pamanteanul aflat pe pamant (led aprins pe linia 8, coloana 4). Pamanteanul se poate deplasa la stanga si la dreapta si poate aprinde LED-uri anterior stinse de pe cer doar vertical (pe aceeasi coloana pe care se afla pamanteanul). Scopul jocului este ca pamanteanul sa acumuleze cat mai multe puncte, adica sa completeze linii din cer - odata completate, acestea dispar. Dificultatea jocului creste in timp. Jocul se termina cand numarul de linii ale cerului devine 8.
+ 
  Abordare tehnica: 
 	Input: joystick
 	Output: matrice
