@@ -34,6 +34,7 @@ Tema 2 - matrice cu LED-uri
 	
 	Cand conditia de oprire este intalnita, se afiseaza scorul (aka numarul de linii) si se revine la inceput (text pe ecran si asteptarea unui click de la jucator).
 	
+	
 
    	 b. Indeplinirea cerintelor
 	 
