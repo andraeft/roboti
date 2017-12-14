@@ -1,7 +1,7 @@
-# roboti
+# robotica
 @ Introducere in robotica cu Arduino
 
-Tema 2 - matrice cu LED-uri
+Proiect - matrice cu LED-uri
 
  
 
