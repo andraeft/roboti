@@ -10,10 +10,12 @@ LedControl lc=LedControl(12,11,10,1); //
  byte Start = 0;
   int  row = 0;
   int  col = 4;
- int timpIntreLinii = 8000;
+ int timpIntreLinii = 6000;
  int previousScor = 0;
  unsigned long previousMillis2 = 0;
  unsigned long previousMillisR = 0;
+ 
+ unsigned long prevMillis = 0;
  byte state[10][10];
  byte waitSignal = 0;
  int numRows = 0; 
@@ -45,14 +47,80 @@ void setup()
       }
       else
       if (waitSignal == 3)
-      {mesajSfarsit();
+      {//mesajSfarsit();
+       //if(millis() - prevMillis >=3000)
+       afiseazaScor();
+        //prevMillis = millis();
+      
       }
  
   comandaPamantean();       
-  checkCer();              
+  checkCer();             
 }
 
          //MESAJE STANDARD
+void afiseazaScor()
+{
+   int r = scor/10%10;
+   switch (r)
+   {case 0: afiseaza0();
+            break;
+    case 1: afiseaza1();
+            break;
+    case 2: afiseaza2();
+            break;
+    case 3: afiseaza3();
+            break;
+    case 4: //afiseaza4();
+            break;
+   }
+}
+
+void afiseaza0()
+{lc.clearDisplay(0);
+   lc.setLed(0,4,5,true);
+   lc.setLed(0,3,4,true);
+   lc.setLed(0,3,3,true);
+   lc.setLed(0,5,4,true);
+   lc.setLed(0,5,3,true);
+   lc.setLed(0,4,2,true);
+}
+
+void afiseaza1()
+{lc.clearDisplay(0);
+   lc.setLed(0,4,5,true);
+   lc.setLed(0,4,4,true);
+   lc.setLed(0,4,3,true);
+   lc.setLed(0,4,2,true);
+   lc.setLed(0,3,2,true);
+   lc.setLed(0,5,2,true);
+   lc.setLed(0,3,4,true);
+}
+
+void afiseaza2()
+{lc.clearDisplay(0);
+   lc.setLed(0,3,5,true);
+   lc.setLed(0,4,5,true);
+   lc.setLed(0,4,4,true);
+   lc.setLed(0,4,3,true);
+   lc.setLed(0,3,3,true);
+   lc.setLed(0,3,2,true);
+   lc.setLed(0,3,1,true);
+   lc.setLed(0,4,1,true);
+}
+
+void afiseaza3()
+{lc.clearDisplay(0);
+   lc.setLed(0,3,5,true);
+   lc.setLed(0,4,5,true);
+   lc.setLed(0,4,4,true);
+   lc.setLed(0,4,3,true);
+   lc.setLed(0,3,3,true);
+   lc.setLed(0,4,2,true);
+   lc.setLed(0,4,1,true);
+   lc.setLed(0,3,1,true);
+}
+
 void mesajStart()
  {
   lc.clearDisplay(0);
@@ -125,15 +193,15 @@ int treatValue(int data) {
      previousMillisR = millis();
 
      if (treatValue(value1) != stdValue || treatValue(value2) != stdValue)
-       waitSignal = 1;
+      waitSignal = 1;
      
        lc.setLed(0,col,row,false);
        state[col][row] = 0;
        if (treatValue(value1) > stdValue)
-         col++;
+         col++;  
          else
          if (treatValue(value1) < stdValue)
-           col--;
+          col--; 
      
        if (col == 8)
            col = 7;
@@ -142,7 +210,7 @@ int treatValue(int data) {
     
    
      if (treatValue(value2) < stdValue)
-         shoot(col);
+         shoot(col); 
          
      lc.setLed(0,col,row,true);
      state[col][row] = 1;
@@ -236,9 +304,11 @@ int treatValue(int data) {
  void cresteDificultate()
  {
   unsigned long currentMillis = millis();
-  if (scor - previousScor == 5)
+  if (scor - previousScor == 3)
     {previousScor = scor;
      timpIntreLinii -= 1000;
      Serial.println("next level!");
      }
+  if (timpIntreLinii <= 0)
+      waitSignal = 3;
  }
